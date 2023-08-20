@@ -1,0 +1,35 @@
+name: app_boilerplate
+description: A simple boilerplate for kick starting my new projects in the future
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  auto_route: ^7.6.0
+  bloc: ^8.1.2
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.3.6
+  intl: ^0.18.0
+  shared_preferences: ^2.2.0
+
+dev_dependencies:
+  auto_route_generator: ^7.1.2
+  bloc_test: ^9.1.2
+  build_runner: ^2.4.6
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+## Install derry from https://pub.dev/packages/derry and run derry build, derry watch, derry gen
+scripts: derry.yaml
