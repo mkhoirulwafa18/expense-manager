@@ -43,22 +43,18 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.black,
-      statusBarBrightness: Brightness.light,
+      statusBarColor: Colors.white,
+      statusBarBrightness: Brightness.dark,
     ),
   );
 
   // Add cross-flavor configuration here
-
-  await runZonedGuarded(
-    () async => runApp(
-      ProviderScope(
-        observers: [
-          Observers(),
-        ],
-        child: await builder(),
-      ),
+  runApp(
+    ProviderScope(
+      observers: [
+        Observers(),
+      ],
+      child: await builder(),
     ),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }
