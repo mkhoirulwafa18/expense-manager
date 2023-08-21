@@ -1,7 +1,8 @@
+import 'package:app_boilerplate/features/dashboard/presentation/screen/dashboard_page.dart';
+import 'package:app_boilerplate/features/statistic/presentation/screen/statistic_page.dart';
 import 'package:auto_route/auto_route.dart';
 
-import '../features/counter/presentation/screen/counter_page.dart';
-import '../features/second/presentation/screen/second_page.dart';
+import '../features/home/presentation/screen/home_page.dart';
 part 'app_route.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -15,7 +16,19 @@ class AppRouter extends _$AppRouter {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: CounterRoute.page, initial: true),
-        AutoRoute(page: SecondRoute.page)
+        AutoRoute(
+          path: '/',
+          page: DashboardRoute.page,
+          children: [
+            AutoRoute(
+              path: '',
+              page: HomeRoute.page,
+            ),
+            AutoRoute(
+              path: 'second',
+              page: StatisticRoute.page,
+            ),
+          ],
+        ),
       ];
 }

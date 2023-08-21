@@ -15,45 +15,65 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    CounterRoute.name: (routeData) {
+    DashboardRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CounterPage(),
+        child: const DashboardPage(),
       );
     },
-    SecondRoute.name: (routeData) {
+    HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SecondPage(),
+        child: const HomePage(),
+      );
+    },
+    StatisticRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StatisticPage(),
       );
     },
   };
 }
 
 /// generated route for
-/// [CounterPage]
-class CounterRoute extends PageRouteInfo<void> {
-  const CounterRoute({List<PageRouteInfo>? children})
+/// [DashboardPage]
+class DashboardRoute extends PageRouteInfo<void> {
+  const DashboardRoute({List<PageRouteInfo>? children})
       : super(
-          CounterRoute.name,
+          DashboardRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'CounterRoute';
+  static const String name = 'DashboardRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [SecondPage]
-class SecondRoute extends PageRouteInfo<void> {
-  const SecondRoute({List<PageRouteInfo>? children})
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
       : super(
-          SecondRoute.name,
+          HomeRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SecondRoute';
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StatisticPage]
+class StatisticRoute extends PageRouteInfo<void> {
+  const StatisticRoute({List<PageRouteInfo>? children})
+      : super(
+          StatisticRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StatisticRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
