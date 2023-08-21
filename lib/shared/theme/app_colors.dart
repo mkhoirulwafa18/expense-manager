@@ -18,4 +18,6 @@ class AppColors {
 
   /// Extra Light grey color
   static const Color extraLightGrey = Color(0xffE1E8ED);
+
+  static const Color backgroundColor = Color.fromARGB(255, 253, 253, 253);
 }

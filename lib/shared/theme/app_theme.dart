@@ -69,6 +69,7 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.lightGrey,
         error: AppColors.error,
+        background: AppColors.backgroundColor,
       ),
       scaffoldBackgroundColor: AppColors.extraLightGrey,
       textTheme: TextThemes.textTheme,
