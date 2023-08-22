@@ -1,4 +1,5 @@
 import 'package:app_boilerplate/features/dashboard/presentation/screen/dashboard_page.dart';
+import 'package:app_boilerplate/features/expenses/presentation/screen/expenses_page.dart';
 import 'package:app_boilerplate/features/statistic/presentation/screen/statistic_page.dart';
 import 'package:auto_route/auto_route.dart';
 

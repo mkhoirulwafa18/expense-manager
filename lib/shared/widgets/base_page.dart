@@ -8,6 +8,7 @@ class BasePage extends StatelessWidget {
     this.floatingActionButton,
     super.key,
     this.actions,
+    this.bottom,
   }) : padding = const EdgeInsets.all(kSpacingMedium);
 
   const BasePage.noPadding({
@@ -15,6 +16,7 @@ class BasePage extends StatelessWidget {
     required this.body,
     this.floatingActionButton,
     this.actions,
+    this.bottom,
     super.key,
   }) : padding = EdgeInsets.zero;
 
@@ -23,6 +25,7 @@ class BasePage extends StatelessWidget {
   final Widget? floatingActionButton;
   final EdgeInsetsGeometry padding;
   final List<Widget>? actions;
+  final PreferredSizeWidget? bottom;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,7 @@ class BasePage extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         actions: [...?actions],
+        bottom: bottom,
       ),
       body: Padding(
         padding: padding,

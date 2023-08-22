@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.18.0
   persistent_bottom_nav_bar: ^5.0.2
   shared_preferences: ^2.2.0
+  tab_indicator_styler: ^2.0.0
 
 dev_dependencies:
   auto_route_generator: ^7.1.2
