@@ -54,9 +54,6 @@ class Section extends StatelessWidget {
         // =====START content=====
         content,
         // =====END content=====
-        const SizedBox(
-          height: 24,
-        ),
       ],
     );
   }
