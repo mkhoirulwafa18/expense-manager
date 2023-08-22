@@ -57,10 +57,11 @@ class _DashboardPageState extends State<DashboardPage> {
         controller: _controller,
         screens: _buildScreens(),
         items: _navBarsItems(),
+        backgroundColor: Theme.of(context).colorScheme.background,
         resizeToAvoidBottomInset: true,
         decoration: NavBarDecoration(
           borderRadius: BorderRadius.circular(10),
-          colorBehindNavBar: Colors.white,
+          colorBehindNavBar: Theme.of(context).colorScheme.background,
         ),
         itemAnimationProperties: const ItemAnimationProperties(
           duration: Duration(milliseconds: 200),
