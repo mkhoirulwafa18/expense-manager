@@ -143,7 +143,7 @@ class HomePage extends ConsumerWidget {
                             padding: const EdgeInsets.all(8),
                             child: Icon(
                               transactions[index].icon,
-                              color: const Color(0xff35388F),
+                              color: theme.colorScheme.primary,
                             ),
                           ),
                         ),
