@@ -1,5 +1,6 @@
 import 'package:app_boilerplate/features/home/presentation/screen/home_page.dart';
 import 'package:app_boilerplate/features/statistic/presentation/screen/statistic_page.dart';
+import 'package:app_boilerplate/shared/theme/app_colors.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,20 +32,20 @@ class _DashboardPageState extends State<DashboardPage> {
           icon: SvgPicture.asset(
             'assets/home.svg',
             // ignore: deprecated_member_use
-            color: const Color(0xff35388F),
+            color: AppColors.primary,
           ),
           inactiveIcon: SvgPicture.asset('assets/home.svg'),
-          activeColorPrimary: const Color(0xff35388F),
+          activeColorPrimary: AppColors.primary,
           inactiveColorPrimary: Colors.grey,
         ),
         PersistentBottomNavBarItem(
           icon: SvgPicture.asset(
             'assets/statistic.svg',
             // ignore: deprecated_member_use
-            color: const Color(0xff35388F),
+            color: AppColors.primary,
           ),
           inactiveIcon: SvgPicture.asset('assets/statistic.svg'),
-          activeColorPrimary: const Color(0xff35388F),
+          activeColorPrimary: AppColors.primary,
           inactiveColorPrimary: Colors.grey,
         ),
       ];
