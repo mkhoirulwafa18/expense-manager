@@ -8,9 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 List<DropdownMenuItem<String>> get dropdownItems {
   final menuItems = <DropdownMenuItem<String>>[
+    const DropdownMenuItem(value: 'day', child: Text('1 day')),
     const DropdownMenuItem(value: 'week', child: Text('1 week')),
     const DropdownMenuItem(value: 'month', child: Text('1 month')),
-    const DropdownMenuItem(value: 'year', child: Text('1 year')),
   ];
   return menuItems;
 }
@@ -87,12 +87,14 @@ class StatisticPage extends ConsumerWidget {
             ),
           ),
           // =====END DASHBOARD SECTION=====
-
+          const SizedBox(
+            height: 20,
+          ),
           // =====EXPENSES SECTION=====
           Section(
             titleSection: 'All Expenses',
             content: SizedBox(
-              height: 220,
+              height: 250,
               child: ListView.builder(
                 itemCount: expenses.length,
                 shrinkWrap: true,
