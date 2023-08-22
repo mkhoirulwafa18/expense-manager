@@ -1,3 +1,4 @@
+import 'package:app_boilerplate/features/expenses/presentation/screen/expenses_page.dart';
 import 'package:app_boilerplate/features/home/presentation/screen/home_page.dart';
 import 'package:app_boilerplate/features/statistic/presentation/screen/statistic_page.dart';
 import 'package:app_boilerplate/shared/theme/app_colors.dart';
@@ -24,28 +25,38 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   List<Widget> _buildScreens() {
-    return const [HomePage(), StatisticPage()];
+    return const [HomePage(), StatisticPage(), ExpensesPage()];
   }
 
-  List<PersistentBottomNavBarItem> _navBarsItems() => [
+  List<PersistentBottomNavBarItem> _navBarsItems(BuildContext context) => [
         PersistentBottomNavBarItem(
           icon: SvgPicture.asset(
             'assets/home.svg',
             // ignore: deprecated_member_use
-            color: AppColors.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
           inactiveIcon: SvgPicture.asset('assets/home.svg'),
-          activeColorPrimary: AppColors.primary,
+          activeColorPrimary: Theme.of(context).colorScheme.primary,
           inactiveColorPrimary: Colors.grey,
         ),
         PersistentBottomNavBarItem(
           icon: SvgPicture.asset(
             'assets/statistic.svg',
             // ignore: deprecated_member_use
-            color: AppColors.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
           inactiveIcon: SvgPicture.asset('assets/statistic.svg'),
-          activeColorPrimary: AppColors.primary,
+          activeColorPrimary: Theme.of(context).colorScheme.primary,
+          inactiveColorPrimary: Colors.grey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: SvgPicture.asset(
+            'assets/dollar.svg',
+            // ignore: deprecated_member_use
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          inactiveIcon: SvgPicture.asset('assets/dollar.svg'),
+          activeColorPrimary: Theme.of(context).colorScheme.primary,
           inactiveColorPrimary: Colors.grey,
         ),
       ];
@@ -56,7 +67,7 @@ class _DashboardPageState extends State<DashboardPage> {
         context,
         controller: _controller,
         screens: _buildScreens(),
-        items: _navBarsItems(),
+        items: _navBarsItems(context),
         backgroundColor: Theme.of(context).colorScheme.background,
         resizeToAvoidBottomInset: true,
         decoration: NavBarDecoration(

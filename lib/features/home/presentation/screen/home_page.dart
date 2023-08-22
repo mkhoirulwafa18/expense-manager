@@ -66,7 +66,9 @@ class HomePage extends ConsumerWidget {
               ),
             ),
             // =====END BALANCE SECTION=====
-
+            const SizedBox(
+              height: 20,
+            ),
             // =====START RECORDED TRANSACTION SECTION=====
             Section(
               titleSection: 'My Recorded Transactions',
@@ -117,7 +119,9 @@ class HomePage extends ConsumerWidget {
               ),
             ),
             // =====END RECORDED TRANSACTION SECTION=====
-
+            const SizedBox(
+              height: 20,
+            ),
             // =====START ALL TRANSACTION SECTION=====
             Section(
               titleSection: 'All Transactions',
