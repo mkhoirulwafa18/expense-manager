@@ -1,7 +1,6 @@
 import 'package:app_boilerplate/features/expenses/presentation/screen/expenses_page.dart';
 import 'package:app_boilerplate/features/home/presentation/screen/home_page.dart';
 import 'package:app_boilerplate/features/statistic/presentation/screen/statistic_page.dart';
-import 'package:app_boilerplate/shared/theme/app_colors.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -62,27 +61,26 @@ class _DashboardPageState extends State<DashboardPage> {
       ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PersistentTabView(
-        context,
-        controller: _controller,
-        screens: _buildScreens(),
-        items: _navBarsItems(context),
-        backgroundColor: Theme.of(context).colorScheme.background,
-        resizeToAvoidBottomInset: true,
-        decoration: NavBarDecoration(
-          borderRadius: BorderRadius.circular(10),
-          colorBehindNavBar: Theme.of(context).colorScheme.background,
-        ),
-        itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 200),
-          curve: Curves.ease,
-        ),
-        screenTransitionAnimation: const ScreenTransitionAnimation(
-          animateTabTransition: true,
-        ),
-        navBarStyle: NavBarStyle.style14,
+    return PersistentTabView(
+      context,
+      controller: _controller,
+      screens: _buildScreens(),
+      items: _navBarsItems(context),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      resizeToAvoidBottomInset: true,
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.circular(10),
+        colorBehindNavBar: Theme.of(context).colorScheme.background,
       ),
+      itemAnimationProperties: const ItemAnimationProperties(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
+      ),
+      screenTransitionAnimation: const ScreenTransitionAnimation(
+        animateTabTransition: true,
+      ),
+      bottomScreenMargin: 0,
+      navBarStyle: NavBarStyle.style14,
     );
   }
 }
