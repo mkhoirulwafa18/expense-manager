@@ -26,112 +26,108 @@ class HomePage extends ConsumerWidget {
           icon: const Icon(Icons.sunny),
         ),
       ],
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // =====BALANCE SECTION=====
-            Section(
-              titleSection: 'Your Balance',
-              subtitleSection: r'$6,420.97',
-              action: const Icon(Icons.more_vert),
-              content: SizedBox(
-                height: 180,
-                child: ListView.builder(
-                  itemCount: 2,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 16),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              index == 0
-                                  ? 'assets/card.png'
-                                  : 'assets/card2.png',
-                            ),
-                            fit: BoxFit.cover,
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // =====BALANCE SECTION=====
+          Section(
+            titleSection: l10n.yourBalance,
+            subtitleSection: r'$6,420.97',
+            action: const Icon(Icons.more_vert),
+            content: SizedBox(
+              height: 180,
+              child: ListView.builder(
+                itemCount: 2,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            index == 0 ? 'assets/card.png' : 'assets/card2.png',
                           ),
-                          borderRadius: BorderRadius.circular(10),
+                          fit: BoxFit.cover,
                         ),
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        height: 200,
-                        // child: Text(index.toString()),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                    );
-                  },
-                ),
+                      width: MediaQuery.of(context).size.width / 1.3,
+                      height: 200,
+                      // child: Text(index.toString()),
+                    ),
+                  );
+                },
               ),
             ),
-            // =====END BALANCE SECTION=====
-            const SizedBox(
-              height: 20,
-            ),
-            // =====START RECORDED TRANSACTION SECTION=====
-            Section(
-              titleSection: 'My Recorded Transactions',
-              action: const Icon(Icons.add),
-              content: SizedBox(
-                height: 80,
-                child: ListView.builder(
-                  itemCount: recordedTrx.length,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 16),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 2.6,
-                        height: 100,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(recordedTrx[index].title),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                const Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  size: 15,
-                                ),
-                              ],
-                            ),
-                            const Divider(),
-                            Text('Recent', style: theme.textTheme.bodySmall),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              '\$${recordedTrx[index].total}',
-                              style: theme.textTheme.bodySmall
-                                  ?.copyWith(color: Colors.grey),
-                            ),
-                          ],
-                        ),
+          ),
+          // =====END BALANCE SECTION=====
+          const SizedBox(
+            height: 20,
+          ),
+          // =====START RECORDED TRANSACTION SECTION=====
+          Section(
+            titleSection: l10n.myRecordedTrx,
+            action: const Icon(Icons.add),
+            content: SizedBox(
+              height: 80,
+              child: ListView.builder(
+                itemCount: recordedTrx.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width / 2.6,
+                      height: 100,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(recordedTrx[index].title),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 15,
+                              ),
+                            ],
+                          ),
+                          const Divider(),
+                          Text(l10n.recent, style: theme.textTheme.bodySmall),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            '\$${recordedTrx[index].total}',
+                            style: theme.textTheme.bodySmall
+                                ?.copyWith(color: Colors.grey),
+                          ),
+                        ],
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
             ),
-            // =====END RECORDED TRANSACTION SECTION=====
-            const SizedBox(
-              height: 20,
-            ),
-            // =====START ALL TRANSACTION SECTION=====
-            Section(
-              titleSection: 'All Transactions',
-              // actionIcon: Icons.add,
+          ),
+          // =====END RECORDED TRANSACTION SECTION=====
+          const SizedBox(
+            height: 20,
+          ),
+          // =====START ALL TRANSACTION SECTION=====
+          Expanded(
+            child: Section(
+              titleSection: l10n.allTrx,
               content: ListView.builder(
                 itemCount: transactions.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return SizedBox(
-                    width: MediaQuery.of(context).size.width / 2.6,
                     height: 80,
                     child: Card(
                       elevation: 1,
@@ -158,9 +154,9 @@ class HomePage extends ConsumerWidget {
                 },
               ),
             ),
-            // =====END ALL TRANSACTION SECTION=====
-          ],
-        ),
+          ),
+          // =====END ALL TRANSACTION SECTION=====
+        ],
       ),
     );
   }
