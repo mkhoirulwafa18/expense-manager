@@ -5,5 +5,24 @@
         "description": "Text shown in the AppBar of the Counter Page"
     },
     "home": "Home",
-    "statistic": "Statistic"
+    "statistic": "Statistic",
+    "expenseDetail": "Expense Details",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yourBalance": "Your Balance",
+    "myRecordedTrx": "My Recorded Transactions",
+    "allTrx": "All Transactions",
+    "recent": "Recent",
+    "dashboard": "Dashboard",
+    "lastXTrx": "Last {i}'s expenses",
+    "@lastXTrx": {
+        "placeholders": {
+            "i": {
+                "type": "String",
+                "example": "week"
+            }
+        }
+    },
+    "allExpenses": "All Expenses"
 }
