@@ -1,8 +1,10 @@
 import 'package:app_boilerplate/features/statistic/presentation/provider/expenses_provider.dart';
 import 'package:app_boilerplate/l10n/l10n.dart';
+import 'package:app_boilerplate/shared/theme/app_colors.dart';
 import 'package:app_boilerplate/shared/widgets/base_page.dart';
 import 'package:app_boilerplate/shared/widgets/section.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,6 +15,122 @@ List<DropdownMenuItem<String>> get dropdownItems {
     const DropdownMenuItem(value: 'month', child: Text('1 month')),
   ];
   return menuItems;
+}
+
+Widget bottomTitleWidgets(double value, TitleMeta meta) {
+  Widget text;
+  switch (value.toInt()) {
+    case 0:
+      text = const Text('Mon');
+    case 2:
+      text = const Text('Tue');
+    case 4:
+      text = const Text('Wed');
+    case 6:
+      text = const Text('Thu');
+    case 8:
+      text = const Text('Fri');
+    case 10:
+      text = const Text('Sat');
+    case 11:
+      text = const Text('Sun');
+    default:
+      text = const Text('');
+      break;
+  }
+
+  return SideTitleWidget(
+    axisSide: meta.axisSide,
+    child: text,
+  );
+}
+
+LineChartData mainData() {
+  return LineChartData(
+    gridData: FlGridData(
+      verticalInterval: 2,
+      drawHorizontalLine: false,
+      getDrawingVerticalLine: (value) {
+        return const FlLine(
+          color: AppColors.extraLightGrey,
+          strokeWidth: 1,
+        );
+      },
+    ),
+    titlesData: const FlTitlesData(
+      rightTitles: AxisTitles(),
+      topTitles: AxisTitles(),
+      leftTitles: AxisTitles(),
+      bottomTitles: AxisTitles(
+        sideTitles: SideTitles(
+          showTitles: true,
+          reservedSize: 30,
+          interval: 1,
+          getTitlesWidget: bottomTitleWidgets,
+        ),
+      ),
+    ),
+    borderData: FlBorderData(
+      show: false,
+    ),
+    minX: 0,
+    maxX: 11,
+    minY: 0,
+    maxY: 900,
+    lineBarsData: [
+      LineChartBarData(
+        spots: const [
+          FlSpot(0, 354),
+          FlSpot(2, 226),
+          FlSpot(4, 500),
+          FlSpot(6, 309),
+          FlSpot(8, 454),
+          FlSpot(10, 362),
+          FlSpot(11, 400),
+        ],
+        color: AppColors.primary,
+        isStrokeCapRound: true,
+        dotData: const FlDotData(
+          show: false,
+        ),
+      ),
+    ],
+    lineTouchData: LineTouchData(
+      getTouchedSpotIndicator:
+          (LineChartBarData barData, List<int> spotIndexes) {
+        return spotIndexes.map((spotIndex) {
+          return TouchedSpotIndicatorData(
+            const FlLine(strokeWidth: 0),
+            FlDotData(
+              getDotPainter: (spot, percent, barData, index) {
+                return FlDotCirclePainter(
+                  radius: 8,
+                  color: Colors.white,
+                  strokeWidth: 3,
+                  strokeColor: AppColors.primary,
+                );
+              },
+            ),
+          );
+        }).toList();
+      },
+      touchTooltipData: LineTouchTooltipData(
+        tooltipBgColor: AppColors.primary,
+        getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
+          return touchedBarSpots.map((barSpot) {
+            final flSpot = barSpot;
+
+            return LineTooltipItem(
+              '\$${flSpot.y}',
+              const TextStyle(
+                color: AppColors.white,
+              ),
+            );
+          }).toList();
+        },
+      ),
+    ),
+  );
 }
 
 @RoutePage()
@@ -34,7 +152,7 @@ class StatisticPage extends ConsumerWidget {
         children: [
           // =====DASHBOARD SECTION=====
           Section(
-            titleSection: 'Dashboard',
+            titleSection: l10n.dashboard,
             action: DropdownButton(
               value: 'week',
               items: dropdownItems,
@@ -51,7 +169,6 @@ class StatisticPage extends ConsumerWidget {
               height: 240,
               child: Container(
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.background,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width,
@@ -60,7 +177,7 @@ class StatisticPage extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Last week's expenses",
+                      l10n.lastXTrx('week'),
                       style: theme.textTheme.bodyMedium
                           ?.copyWith(fontWeight: FontWeight.w500),
                     ),
@@ -75,10 +192,11 @@ class StatisticPage extends ConsumerWidget {
                     const SizedBox(
                       height: 9,
                     ),
-                    Placeholder(
-                      child: SizedBox(
-                        height: 156,
-                        width: MediaQuery.of(context).size.width,
+                    SizedBox(
+                      height: 156,
+                      width: double.maxFinite,
+                      child: LineChart(
+                        mainData(),
                       ),
                     ),
                   ],
@@ -91,11 +209,10 @@ class StatisticPage extends ConsumerWidget {
             height: 20,
           ),
           // =====EXPENSES SECTION=====
-          Section(
-            titleSection: 'All Expenses',
-            content: SizedBox(
-              height: 250,
-              child: ListView.builder(
+          Flexible(
+            child: Section(
+              titleSection: l10n.allExpenses,
+              content: ListView.builder(
                 itemCount: expenses.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
