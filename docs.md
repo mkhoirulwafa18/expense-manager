@@ -55,6 +55,22 @@ $ open coverage/index.html
 
 ---
 
+## About Derry
+
+This project is powered by Derry, a powerful script runner and task automation tool. With Derry, you can easily manage and execute complex scripts and tasks right from your command line.
+
+To get started with Derry, make sure you have it installed:
+
+```bash
+npm install -g derry
+```
+
+Then, you can run various tasks defined in your **derry.json** configuration file:
+
+```bash
+derry [task-name]
+```
+
 ## Working with Translations 🌐
 
 This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].

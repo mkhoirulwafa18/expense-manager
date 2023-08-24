@@ -24,6 +24,8 @@ Welcome to my awesome Flutter project! 🚀 This project is designed to provide 
 
 - **Animations:** Bring your app to life with captivating animations that enhance user experience and engagement.
 
+- **Derry script support:** Powerful script runner and task automation tool. With Derry, you can easily manage and execute complex scripts and tasks right from your command line.
+
 ## Screenshots
 
 <div align="center">
