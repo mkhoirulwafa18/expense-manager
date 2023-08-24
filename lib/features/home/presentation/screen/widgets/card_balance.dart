@@ -17,6 +17,7 @@ class CardBalance extends StatelessWidget {
         child: ListView.builder(
           itemCount: 2,
           shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Padding(

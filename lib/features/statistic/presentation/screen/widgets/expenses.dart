@@ -20,6 +20,7 @@ class Expenses extends ConsumerWidget {
         content: ListView.builder(
           itemCount: expenses.length,
           shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return ListTile(
               title: Text(
@@ -35,7 +36,7 @@ class Expenses extends ConsumerWidget {
                 style: theme.textTheme.bodyMedium
                     ?.copyWith(color: theme.colorScheme.primary),
               ),
-            ).animate(delay: (400 * index).ms).fade(duration: 400.ms).move(
+            ).animate(delay: (100 * index).ms).fade(duration: 400.ms).move(
                   begin: const Offset(0, 30),
                   curve: Curves.fastOutSlowIn,
                   delay: 200.ms,

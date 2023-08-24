@@ -23,6 +23,7 @@ class RecordedTrx extends ConsumerWidget {
           itemCount: recordedTrx.length,
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.only(right: 16),

@@ -44,7 +44,7 @@ class ListExpenses extends ConsumerWidget {
                   ),
                 ),
               ),
-            ).animate(delay: (400 * index).ms).fade(duration: 400.ms).move(
+            ).animate(delay: (100 * index).ms).fade(duration: 400.ms).move(
                   begin: const Offset(0, 30),
                   curve: Curves.fastOutSlowIn,
                   delay: 200.ms,

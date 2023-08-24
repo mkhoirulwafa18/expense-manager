@@ -20,6 +20,7 @@ class AllTrx extends ConsumerWidget {
         content: ListView.builder(
           itemCount: transactions.length,
           shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return SizedBox(
               height: 80,
