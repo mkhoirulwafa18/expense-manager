@@ -9,6 +9,7 @@ Welcome to my awesome Flutter project! 🚀 This project is designed to provide 
 <div align="center">
   <img src="assets/screenshots/expenseShow.png" alt="Screenshot 1" width="100%">
 </div>
+
 ## Features
 
 - **Ready-to-Use UI:** Get started quickly with a fully functional UI that you can build upon and customize according to your needs.
@@ -30,6 +31,7 @@ Welcome to my awesome Flutter project! 🚀 This project is designed to provide 
   <img src="assets/screenshots/statistic.png" alt="Screenshot 2" width="30%">
   <img src="assets/screenshots/expense.png" alt="Screenshot 3" width="30%">
 </div>
+
 ## App Preview
 
 Check out this brief GIF preview of the app:
